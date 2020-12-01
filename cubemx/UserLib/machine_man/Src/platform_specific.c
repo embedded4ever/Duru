@@ -32,9 +32,9 @@ struct command close_connection_window_t = {"CLOSE", "", NULL, &close_connection
 struct command* main_all_command_list_table[] =
 {
     &at_window_t,
-&put_window_t,
-&put_transparent_command_window_t,
-&close_connection_window_t,
+	&put_window_t,
+	&put_transparent_command_window_t,
+	&close_connection_window_t,
 };
 
 /**************************************************************************************************************************/
