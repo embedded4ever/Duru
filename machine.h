@@ -29,10 +29,10 @@ typedef void (*success_callback)(void *self);
 
 typedef enum e_error_code
 {
-		OK  = 0,
-		NULL_PTR = -1,
-		IN_PROCESS = -2,
-		NULL_CHILD = -3,
+    OK  = 0,
+    NULL_PTR = -1,
+    IN_PROCESS = -2,
+    NULL_CHILD = -3,
 	
 }error_code;
 
@@ -41,11 +41,11 @@ struct command
     const char* command_name;
     const char* expected_reply[2];
     struct command_window* child_command_window;
-		parser parser_cb;
-		uint16_t timeout;
-		command_callback command_cb;
-		error_callback error_cb;
-		success_callback success_cb;
+    parser parser_cb;
+    uint16_t timeout;
+    command_callback command_cb;
+    error_callback error_cb;
+    success_callback success_cb;
 		
 };
 
@@ -64,14 +64,14 @@ struct command_window
 
 struct command_machine
 {
-		struct command_window* current_command_window;
+    struct command_window* current_command_window;
     uint8_t command_index;
     uint8_t command_window_index;
-		uint16_t timer;
-		uint16_t timer_cnt;
-		bool is_state_transition_available;
-		bool is_all_command_completed;
-		bool is_process;
+    uint16_t timer;
+    uint16_t timer_cnt;
+    bool is_state_transition_available;
+    bool is_all_command_completed;
+    bool is_process;
     uart_tx uart_tx_cb;
     void (*gsm_power_reset)(void);
 		#ifdef LOW_POWER_MODE
@@ -122,5 +122,6 @@ bool get_command_window_status(struct command_machine* self, const char* name);
 #ifdef __cplusplus
 }
 #endif
+
 
 #endif
