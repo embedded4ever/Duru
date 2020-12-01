@@ -19,6 +19,10 @@ Whenever I started a new GSM-based project, it takes time to create a new struct
 - [x] Examples
 - [ ] Add How it works ?
 
+<p align="center">
+  <img src="png/flow.png" />
+</p>
+
 # Contribute
  1. Fork Github repository
  2. Respect C style & coding rules used by the library
