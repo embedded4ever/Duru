@@ -32,9 +32,9 @@ struct command close_connection_window_t = {"CLOSE", "", NULL, &close_connection
 struct command* main_all_command_list_table[] =
 {
     &at_window_t,
-		&put_window_t,
-		&put_transparent_command_window_t,
-		&close_connection_window_t,
+	&put_window_t,
+	&put_transparent_command_window_t,
+	&close_connection_window_t,
 };
 
 /**************************************************************************************************************************/
@@ -124,22 +124,22 @@ struct command at_configure_gnss_second = {"AT+QGPSCFG=\"outport\",\"uartdebug\"
 //"INIT window" command table.
 struct command* at_commands_list_table[] = 
 {
-		//&at_echo,
+	//&at_echo,
     &at,
-		&at_cping,
-		&at_creg,
-		&at_cgreg,
-		&at_qindi,
-		&at,
-		&at_cgact_deactivate,
-		&cgdcont,
+	&at_cping,
+	&at_creg,
+	&at_cgreg,
+	&at_qindi,
+	&at,
+	&at_cgact_deactivate,
+	&cgdcont,
     &at_cgact_activate,
-		&at_cpgaddr,
-		&at,
-		&at_qiact,
-		&at_get_imei,
-		&at_get_time,
-		&at,
+	&at_cpgaddr,
+	&at,
+	&at_qiact,
+	&at_get_imei,
+	&at_get_time,
+	&at,
 		
 };
 
