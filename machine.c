@@ -98,9 +98,13 @@ error_code machine_start (struct command_machine* self)
 
 		else
 		{ 
-			self -> uart_tx_cb ((uint8_t *)self -> current_command_window -> command_table[self -> command_index] -> command_name, 
-									strlen(self -> current_command_window -> command_table[self -> command_index] -> command_name));
+			if (self -> uart_tx_cb)
+			{
+				self -> uart_tx_cb ((uint8_t *)self -> current_command_window -> command_table[self -> command_index] -> command_name, 
+						strlen(self -> current_command_window -> command_table[self -> command_index] -> command_name));
+			}
 		}
+			
 		
 		self -> timer = 1;
 		
@@ -258,8 +262,11 @@ error_code machine_loop (struct command_machine* self)
 
 			else
 			{
-				self -> uart_tx_cb((uint8_t *)self -> current_command_window -> command_table[self -> command_index] -> command_name, 
-																strlen(self -> current_command_window -> command_table[self -> command_index] -> command_name));
+				if (self -> uart_tx_cb != NULL)
+				{
+					self -> uart_tx_cb((uint8_t *)self -> current_command_window -> command_table[self -> command_index] -> command_name, 
+										strlen(self -> current_command_window -> command_table[self -> command_index] -> command_name));
+				}
 			}
 
 			self -> is_state_transition_available = 0;
