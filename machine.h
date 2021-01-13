@@ -93,6 +93,7 @@ typedef struct _gsm_uart
 	uint8_t new_line_flag;
 	char gnss_buffer[100];
 	char gnss_data;	
+    
      
 }tgsm_uart;
 
@@ -118,6 +119,9 @@ error_code machine_trans(struct command_machine* self, const char* tran_command_
 struct command_window* get_current_window(struct command_machine* self);
 
 bool get_command_window_status(struct command_machine* self, const char* name);
+
+error_code machine_stop_current(struct command_machine* self);
+
 
 #ifdef __cplusplus
 }

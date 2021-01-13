@@ -484,3 +484,33 @@ bool get_command_window_status(struct command_machine* self, const char* name)
 	
 	return status;
 }
+
+
+/**
+ * \brief           stop the machine
+ * \param[in]       self: Pointer to command_machine
+ * \return          OK
+ */
+error_code machine_stop_current (struct command_machine* self)
+{	
+	
+	self -> current_command_window -> command_window_status = true;
+	
+	while (self -> current_command_window -> command_window_parent != NULL)
+	{
+		self -> current_command_window = self -> current_command_window -> command_window_parent;
+	}
+	
+	self -> is_process = true;
+	
+	self -> timer = 0;
+		
+	self -> command_index = 0;
+	
+	self -> command_window_index = 0;
+
+	self -> is_state_transition_available  = 0;	
+	
+	return OK;
+
+}

@@ -118,6 +118,9 @@ error_code machine_trans(struct command_machine* self, const char* tran_command_
 
 struct command_window* get_current_window(struct command_machine* self);
 
+error_code machine_stop_current(struct command_machine* self);
+
+
 bool get_command_window_status(struct command_machine* self, const char* name);
 
 #ifdef __cplusplus
